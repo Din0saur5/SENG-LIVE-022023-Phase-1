@@ -25,10 +25,32 @@ const createPokemon = (e) => {
   };
 
   // Make a POST request to persist the new character
+    const configObj = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify(newChar),
+    }
+    
 
-  renderPokemon(newChar);
-  pokeForm.reset();
-};
+
+
+    fetch('https://localhost:3000/characters', configObj)
+    .then((resp)=> {
+      return resp.json();
+    })
+    .then((data) => {
+      if (data.id){
+        renderPokemon(newChar);
+        pokeForm.reset();
+      }
+    })
+    .catch((error)=>{
+      alert(error);
+    });
+    };
 
 pokeForm.addEventListener("submit", createPokemon);
 

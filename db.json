@@ -38,13 +38,12 @@
       "content": "I love Bulbasaur!"
     },
     {
-      "id": 1,
+      "id": 2,
       "characterId": 1,
       "content": "Bulbasaur is coool!"
     },
     {
-      "id": 2,
-      "user": "Alice",
+      "id": 3,
       "characterId": 2,
       "content": "I love Ivysaur more!"
     }
