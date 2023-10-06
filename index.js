@@ -31,6 +31,22 @@ const pokemon = [
   },
 ];
 
+const getPokemon=() => {
+ fetch("http://localhost:3000/characters")
+  .then((resp)=> {
+    console.log(resp);
+    return resp.json();
+  })
+  .then((data)=>{
+    data.forEach(function (character){
+      renderPokemon(character);
+
+    });
+  })
+  console.log("when does this happen");
+};
+getPokemon();
+
 const pokeContainer = document.querySelector("#poke-container");
 const pokeForm = document.querySelector("#poke-form");
 
@@ -50,9 +66,7 @@ pokeForm.addEventListener("submit", function (e) {
   pokeForm.reset();
 });
 
-pokemon.forEach(function (character) {
-  renderPokemon(character);
-});
+
 
 function renderPokemon(char) {
   const pokeCard = document.createElement("div");
